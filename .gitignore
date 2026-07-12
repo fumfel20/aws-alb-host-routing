@@ -30,7 +30,6 @@ override.tf.json
 
 # Ansible
 *.retry
-ansible/inventory.ini
 
 # Private keys and public keys
 *.pem
