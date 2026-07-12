@@ -17,7 +17,7 @@ resource "local_file" "ansible_inventory" {
   content = templatefile("${path.module}/templates/inventory.ini.tpl", {
     project1_ip  = aws_instance.project1.public_ip
     project2_ip  = aws_instance.project2.public_ip
-    ssh_key_path = "{{ inventory_dir }}/../terraform/${var.ssh_key_path}"
+    ssh_key_path = "\"{{ inventory_dir }}/../terraform/${var.ssh_key_path}\""
   })
   filename = "${path.module}/../ansible/inventory.ini"
 }
