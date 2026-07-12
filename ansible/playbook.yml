@@ -1,0 +1,32 @@
+---
+- name: Configure Web Servers for Host-Based Routing
+  hosts: all
+  become: true
+  tasks:
+    - name: Update apt cache
+      apt:
+        update_cache: yes
+        cache_valid_time: 3600
+
+    - name: Install Nginx
+      apt:
+        name: nginx
+        state: present
+
+    - name: Start Nginx service
+      service:
+        name: nginx
+        state: started
+        enabled: yes
+
+    - name: Determine Project Name
+      set_fact:
+        project_name: "{{ 'Project 1' if 'project1' in group_names else 'Project 2' if 'project2' in group_names else 'Unknown Project' }}"
+
+    - name: Deploy dynamic index.html page
+      template:
+        src: templates/index.html.j2
+        dest: /var/www/html/index.html
+        owner: www-data
+        group: www-data
+        mode: '0644'

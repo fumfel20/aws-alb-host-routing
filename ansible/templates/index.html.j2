@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ project_name }} - AWS + Ansible + Terraform Demo</title>
+    <style>
+        :root {
+            --bg-color: #0f172a;
+            --card-bg: rgba(30, 41, 59, 0.7);
+            --text-color: #f8fafc;
+            --accent-color: #38bdf8;
+            --success-color: #4ade80;
+        }
+        body {
+            font-family: 'Outfit', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0;
+            overflow: hidden;
+        }
+        .container {
+            text-align: center;
+            background: var(--card-bg);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 3rem;
+            border-radius: 24px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            max-width: 500px;
+            width: 90%;
+            transition: transform 0.3s ease;
+        }
+        .container:hover {
+            transform: translateY(-5px);
+        }
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #38bdf8, #818cf8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        p {
+            color: #94a3b8;
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+        .badge {
+            display: inline-block;
+            padding: 0.5rem 1.5rem;
+            border-radius: 9999px;
+            background-color: rgba(74, 222, 128, 0.15);
+            color: var(--success-color);
+            font-weight: 600;
+            margin-top: 1.5rem;
+            border: 1px solid rgba(74, 222, 128, 0.3);
+            letter-spacing: 0.05em;
+        }
+        .footer {
+            margin-top: 2rem;
+            font-size: 0.85rem;
+            color: #64748b;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>{{ project_name }} Deployment Successful!</h1>
+        <p>This page is served by Nginx running on an AWS EC2 instance.</p>
+        <p>Infrastructure created by <strong>Terraform</strong>, server configured by <strong>Ansible</strong>, and deployment automated with <strong>GitHub Actions</strong>.</p>
+        <p style="color: var(--accent-color); font-size: 0.95rem; margin-top: 1.5rem; border-top: 1px solid rgba(255, 255, 255, 0.1); padding-top: 1.5rem;">
+            🔄 An <strong>AWS Application Load Balancer (ALB)</strong> is actively routing incoming traffic dynamically based on the <strong>Host header</strong> to different EC2 instances.
+        </p>
+        <div class="badge">Application is Running</div>
+        <div class="footer">Application version 1.0.0</div>
+    </div>
+</body>
+</html>
